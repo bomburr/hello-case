@@ -1,0 +1,17 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/arm64
+    ports:
+      - 5003
+  nginx:
+    build:
+      context: .
+      dockerfile: dockerfile.nginx
+    ports:
+      - 443:443
+    depends_on:
+      - app
