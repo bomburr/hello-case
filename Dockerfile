@@ -1,17 +1,8 @@
-FROM cgr.dev/chainguard/python:latest-dev as builder
+FROM python:3.9.19-slim-bullseye
 
 WORKDIR /app
-COPY requirements.txt .
+COPY . .
 
 RUN pip install -r requirements.txt --user
 
-FROM cgr.dev/chainguard/python:latest
-
-WORKDIR /app
-
-
-COPY --from=builder /home/nonroot/.local/lib/python3.12/site-packages /home/nonroot/.local/lib/python3.12/site-packages
-
-COPY app.py .
-
-ENTRYPOINT [ "python", "/app/app.py" ]
+CMD  [ "python", "/app/app.py" ]
