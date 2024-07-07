@@ -1,8 +1,8 @@
 FROM nginx:stable-perl
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY /app/certs/intCA.pem /etc/ssl/certs/intCA.pem
-COPY /app/certs/rootCA.pem /etc/ssl/certs/rootCA.pem
+COPY ./certs/intCA.pem /etc/ssl/certs/intCA.pem
+COPY ./certs/rootCA.pem /etc/ssl/certs/rootCA.pem
 
-COPY /app/certs/testkey.pem /etc/ssl/testkey.pem
-COPY /app/certs/testcert.pem /etc/ssl/testcert.pem
+COPY ./certs/testkey.pem /etc/ssl/testkey.pem
+COPY ./certs/testcert.pem /etc/ssl/testcert.pem
